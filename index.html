@@ -281,6 +281,39 @@
             background-image: linear-gradient(90deg, var(--secondary), var(--primary));
         }
         
+        /* Image Styling */
+        .feature-image-container {
+            text-align: center;
+            margin: 60px 0;
+        }
+        
+        .feature-image {
+            width: 100%;
+            max-width: 900px;
+            border-radius: var(--radius-lg);
+            box-shadow: 0 20px 40px rgba(0, 168, 132, 0.15);
+            border: 1px solid var(--border);
+            transition: var(--transition);
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .feature-image:hover {
+            transform: scale(1.01);
+            box-shadow: 0 25px 50px rgba(0, 168, 132, 0.2);
+        }
+        
+        .image-caption {
+            text-align: center;
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-top: 15px;
+            font-style: italic;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
         /* Responsive Design */
         @media (max-width: 768px) {
             .container {
@@ -315,6 +348,10 @@
             .feature-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
+            }
+            
+            .feature-image {
+                margin: 30px auto;
             }
         }
         
@@ -416,6 +453,19 @@
                 </p>
             </div>
         </section>
+
+        <!-- ================================================ -->
+        <!-- FEATURE IMAGE: Zunillnza2-Wagerl.jpg -->
+        <!-- ================================================ -->
+        <div class="feature-image-container">
+            <img src="https://raw.githubusercontent.com/vcemag/Zunillnza2-Wagerl/0da41c850b71da118b5f5aa3aa083f2bfee16225/Zunillnza2-Wagerl.jpg" 
+                 alt="Zuwipled-7.46z Technology Optimization System"
+                 class="feature-image animate-in"
+                 loading="lazy">
+            <p class="image-caption">
+                Visual representation of Zuwipled-7.46z system - Optimizing technology for better focus and productivity
+            </p>
+        </div>
 
         <!-- Section 1: What Is Zuwipled-7.46z -->
         <section class="content-section">
@@ -603,7 +653,7 @@
             }, observerOptions);
             
             // Observe elements for animation
-            document.querySelectorAll('.content-card, .feature-card, .section-title').forEach(el => {
+            document.querySelectorAll('.content-card, .feature-card, .section-title, .feature-image').forEach(el => {
                 observer.observe(el);
             });
             
