@@ -136,10 +136,15 @@
         
         .feature-image {
             width: 100%;
+            height: auto;
             border-radius: var(--radius-xl);
             box-shadow: var(--shadow-lg);
             transition: var(--transition);
             border: 1px solid var(--border);
+            display: block;
+            background: var(--light-gray);
+            min-height: 400px;
+            object-fit: cover;
         }
         
         .feature-image:hover {
@@ -336,6 +341,10 @@
             .feature-image-container {
                 margin: 40px auto;
             }
+            
+            .feature-image {
+                min-height: 300px;
+            }
         }
         
         @media (max-width: 480px) {
@@ -357,6 +366,10 @@
             
             .benefit-item {
                 padding: 20px;
+            }
+            
+            .feature-image {
+                min-height: 250px;
             }
         }
         
@@ -447,6 +460,11 @@
             position: relative;
             z-index: 1;
         }
+        
+        /* Utility Classes */
+        .mt-40 {
+            margin-top: 40px;
+        }
     </style>
     
     <!-- Google Fonts -->
@@ -477,14 +495,15 @@
             </div>
         </section>
 
-<!-- Feature Image -->
-<div class="feature-image-container animate-in" style="animation-delay: 0.6s;">
-    <img src="https://raw.githubusercontent.com/vcemag/Zunillnza2-Wagerl/main/Zunillnza2-Wagerl.jpg" 
-         alt="Zunillnza2 Wagerl Smart Decision Making Framework"
-         class="feature-image"
-         loading="lazy">
-    <p class="image-caption">The structured approach of Zunillnza2 Wagerl - turning complex decisions into clear paths</p>
-</div>
+        <!-- Feature Image - FIXED VERSION -->
+        <div class="feature-image-container animate-in" style="animation-delay: 0.6s;">
+            <img src="https://raw.githubusercontent.com/vcemag/Zunillnza2-Wagerl/main/Zunillnza2-Wagerl.jpg?v=1" 
+                 alt="Zunillnza2 Wagerl"
+                 class="feature-image"
+                 loading="lazy"
+                 onerror="this.src='https://placehold.co/900x500/7c3aed/ffffff?text=Zunillnza2+Wagerl';this.alt='Zunillnza2 Wagerl'">
+            <p class="image-caption">The structured approach of Zunillnza2 Wagerl - turning complex decisions into clear paths</p>
+        </div>
 
         <!-- Section 1: What is Zunillnza2 Wagerl -->
         <section class="content-section">
@@ -667,6 +686,17 @@
                     }
                 });
             });
+            
+            // Image loading check
+            const featureImage = document.querySelector('.feature-image');
+            if (featureImage) {
+                featureImage.addEventListener('load', function() {
+                    console.log('✅ Feature image loaded successfully');
+                });
+                featureImage.addEventListener('error', function() {
+                    console.log('⚠️ Feature image failed to load, using placeholder');
+                });
+            }
         });
     </script>
 </body>
